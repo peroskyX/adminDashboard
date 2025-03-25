@@ -32,13 +32,6 @@ export const NavItems = () => {
       position: 'top',
     },
     {
-      name: 'UsersAnalytics',
-      href: '/admin/usersanalytics',
-      icon: <BarChart size={20} />,
-      active: isNavItemActive(pathname, '/usersanalytics'),
-      position: 'top',
-    },
-    {
       name: 'UserActivities',
       href: '/admin/useractivities',
       icon: <User size={20} />,
