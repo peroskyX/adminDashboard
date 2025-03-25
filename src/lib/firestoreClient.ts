@@ -10,8 +10,6 @@ import {
   doc,
   getDoc,
   updateDoc,
-  Query,
-  DocumentData,
 } from 'firebase/firestore';
 import { firebaseClientApp } from './firebaseClient'; // Initialize Firebase
 
@@ -272,48 +270,3 @@ export const fetchUserActivityLogs = async (
       snapshot.docs.length > 0 ? snapshot.docs[snapshot.docs.length - 1] : null,
   };
 };
-
-// export const fetchUserActivityLogs = async (
-//   pageSize = 20,
-//   lastDoc: any = null,
-//   partitionKey: string | null = null,
-//   searchQuery: string | null = null
-// ) => {
-//   const activityLogsRef = collection(db, 'userActivityLogs');
-
-//   let q: Query<DocumentData> = query(
-//     activityLogsRef,
-//     orderBy('timestamp', 'desc'),
-//     limit(pageSize)
-//   );
-
-//   if (partitionKey) {
-//     q = query(q, where('partitionKey', '==', partitionKey));
-//   }
-
-//   if (searchQuery) {
-//     q = query(
-//       q,
-//       where('userId', '>=', searchQuery),
-//       where('userId', '<=', searchQuery + '\uf8ff'),
-//       orderBy('userId')
-//     );
-//   }
-
-//   if (lastDoc) {
-//     q = query(q, startAfter(lastDoc));
-//   }
-
-//   const snapshot = await getDocs(q);
-//   const activityLogs = snapshot.docs.map((doc) => ({
-//     id: doc.id,
-//     ...doc.data(),
-//     timestamp: doc.data().timestamp?.toDate().toISOString().slice(0, 16),
-//   }));
-
-//   return {
-//     activityLogs,
-//     lastVisible:
-//       snapshot.docs.length > 0 ? snapshot.docs[snapshot.docs.length - 1] : null,
-//   };
-// };

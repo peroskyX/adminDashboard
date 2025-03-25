@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/firebaseAdmin'; // Use Firebase Admin SDK
-import { Firestore } from 'firebase-admin/firestore';
 
 // Function to fetch user activity logs
 export async function POST(req: NextRequest) {
