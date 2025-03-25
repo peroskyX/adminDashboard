@@ -29,8 +29,8 @@ export async function POST(req: NextRequest) {
       queryRef = db
         .collection('userActivityLogs')
         .where('partitionKey', '==', partitionKey)
-        .where('userId', '==', searchQuery) // Exact match for userId
-        .orderBy('timestamp', 'asc') //
+        .where('userId', '==', searchQuery)
+        .orderBy('timestamp', 'desc') //
         .limit(pageSize);
     }
 
